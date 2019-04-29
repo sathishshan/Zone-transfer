@@ -10,7 +10,7 @@ none="\e[0m"
 #argument check
 
 if [ ${#} -ne 1 ]; then
-        echo -e "Need one domain to run the script ${green}[USAGE]:${none} ${0} naked-domain"
+        echo -e "Need one domain to run the script ${blue}[USAGE]:${none} ${0} naked-domain"
         exit
 fi
 
