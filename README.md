@@ -1,6 +1,6 @@
 # zonetransfer
 
-USAGE:
+### USAGE:
 
 ./zone-t.sh domain.com
 
