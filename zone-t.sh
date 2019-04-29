@@ -1,18 +1,18 @@
 #!/bin/bash
 
-#argument check
-
-if [ $# -ne 1 ]; then
-        echo -e "Need one domain to run the script ${green}[USAGE]:${none} $0 naked-domain"
-        exit
-fi
-
 #colours
 
 green="\e[92m"
 red="\e[91m"
 blue="\e[34m"
 none="\e[0m"
+
+#argument check
+
+if [ ${#} -ne 1 ]; then
+        echo -e "Need one domain to run the script ${green}[USAGE]:${none} ${0} naked-domain"
+        exit
+fi
 
 #working area
 dig ns ${1} +short > ns.txt
