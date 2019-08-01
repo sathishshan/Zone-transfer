@@ -15,17 +15,17 @@ if [ ${#} -ne 1 ]; then
 fi
 
 #working area
-dig ns ${1} +short > ns.txt
+dig ns ${1} +short > /tmp/ns
 
 while read line
 do
         zone=$(dig  @${line} ${1}. axfr)
-        if echo "$zone" | grep -Ei ("Transfer failed\."|"failed"|"network unreachable") &>/dev/null ; then
+        if echo "$zone" | grep -Ei '(Transfer failed|failed|network unreachable)' &>/dev/null ; then
         echo -e "${red}zone Transfer ${none}${blue}[Failed]${none}${red} in ${line} Server${none}"
         else
         echo -e "${green}zone Transfer ${none}${blue}[SUCCESS]${none}${green} in ${line} Server${none}"
         dig  @${line} ${1}. axfr >> zonetranfer_results.md
         echo "DNS Retervied Data is saved in the file zonetranfer_results.md"
         fi
-done < ns.txt
-rm ns.txt
+done < /tmp/ns
+rm /tmp/ns
