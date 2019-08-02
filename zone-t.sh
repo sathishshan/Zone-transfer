@@ -20,7 +20,7 @@ dig ns ${1} +short > /tmp/ns
 while read line
 do
         zone=$(dig  @${line} ${1}. axfr)
-        if echo "$zone" | grep -Ei '(Transfer failed|failed|network unreachable)' &>/dev/null ; then
+        if echo "$zone" | grep -Ei '(Transfer failed|failed|network unreachable|error|connection reset)' &>/dev/null ; then
         echo -e "${red}zone Transfer ${none}${blue}[Failed]${none}${red} in ${line} Server${none}"
         else
         echo -e "${green}zone Transfer ${none}${blue}[SUCCESS]${none}${green} in ${line} Server${none}"
