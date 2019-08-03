@@ -24,7 +24,7 @@ do
         echo -e "${red}zone Transfer ${none}${blue}[Failed]${none}${red} in ${line} Server${none}"
         else
         echo -e "${green}zone Transfer ${none}${blue}[SUCCESS]${none}${green} in ${line} Server${none}"
-        dig  @${line} ${1}. axfr >> zonetranfer_results.md
+        echo "$zone" >> zonetranfer_results.md
         echo "DNS Retervied Data is saved in the file zonetranfer_results.md"
         fi
 done < /tmp/ns
