@@ -7,6 +7,8 @@ red="\e[91m"
 blue="\e[34m"
 none="\e[0m"
 
+PULL_REQUEST
+
 #argument check
 
 if [ ${#} -ne 1 ]; then
